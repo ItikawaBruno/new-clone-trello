@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import { Poppins } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { text } from "stream/consumers";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: {
@@ -29,6 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <ClerkProvider>
     <html suppressHydrationWarning lang="pt-br" className={`${textFont.className}`}>
       <head />
       <body className="h-screen w-screen bg-slate-100"
@@ -38,5 +40,6 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
